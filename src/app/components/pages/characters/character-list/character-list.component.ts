@@ -14,6 +14,7 @@ export class CharacterListComponent implements OnInit {
   public characters: Character[] = [];
   private pageNum: number = 1;
   private query!: string;
+  private total: number = 10;
 
   constructor(private readonly characterService: CharacterService, private readonly route: ActivatedRoute, private readonly router: Router) {
     this.onUrlChange();
@@ -32,7 +33,11 @@ export class CharacterListComponent implements OnInit {
         this.characters = [];
       }
       const { _, results } = res;
-      this.characters = [ ...this.characters, ...results ];
+      const mappedResults = results.map((item: any) => ({
+        ...item,
+        total: this.total
+      }));
+      this.characters = [ ...this.characters, ...mappedResults ];
     });
   }
 

@@ -3,6 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'card-app-56275',
+    appId: '1:95946554037:web:5b2ccc18f969b138b59cfc',
+    storageBucket: 'card-app-56275.appspot.com',
+    apiKey: 'AIzaSyCBwJHHTlwaXiCiLlpbUmYV0OecWqEUx4Q',
+    authDomain: 'card-app-56275.firebaseapp.com',
+    messagingSenderId: '95946554037',
+  },
   production: false,
   baseUrlAPI: 'https://rickandmortyapi.com/api/character/',
 };
