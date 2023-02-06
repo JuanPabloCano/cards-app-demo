@@ -1,23 +1,22 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
+import { AtomModule } from '@app/components/atoms/atoms.module';
+import { environment } from '@environment/environment';
+import { MoleculeModule } from '@molecules/molecule.module';
+import { OrganismModule } from '@organisms/organism.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from '@shared/components/header/header.component';
-import { FormSearchComponent } from '@shared/components/form-search/form-search.component';
-import { HttpClientModule } from '@angular/common/http';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '@environment/environment';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FormSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +26,13 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AtomModule,
+    OrganismModule,
+    MoleculeModule
   ],
   providers: [],
+  exports: [],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

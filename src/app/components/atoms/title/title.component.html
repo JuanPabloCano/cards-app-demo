@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="size">
+  <h1 class="title small title" *ngSwitchCase="'small'">{{text}}</h1>
+  <h2 class="title medium title" *ngSwitchCase="'medium'">{{text}}</h2>
+  <h3 class="title large title" *ngSwitchCase="'large'">{{text}}</h3>
+</ng-container>

@@ -7,18 +7,21 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
+  { path: 'login', loadChildren: () => import('./components/organisms/login/login-routing.module').then(m => m.LoginRoutingModule) },
   {
     path: 'home',
-    loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./components/templates/home/home.module').then(m => m.HomeModule)
   },
-  { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
-   {
+  {
+    path: 'register',
+    loadChildren: () => import('./components/organisms/register/register-routing.module').then(m => m.RegisterRoutingModule)
+  },
+  {
     path: 'character-list',
-    loadChildren: () => import('./components/pages/characters/character-list/character-list.module').then(m => m.CharacterListModule)
+    loadChildren: () => import('./components/organisms/character-list/character-list-routing.module').then(m => m.CharacterListRoutingModule)
   }, {
     path: 'character-details/:id',
-    loadChildren: () => import('./components/pages/characters/character-details/character-details.module').then(m => m.CharacterDetailsModule)
+    loadChildren: () => import('./components/organisms/character-details/character-details-routing.module').then(m => m.CharacterDetailsRoutingModule)
   },
 
 ];

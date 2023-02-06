@@ -1,0 +1,44 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark px-3">
+    <app-title size="medium" [text]="'Rick And Morty Card Game'"></app-title>
+    <a class="navbar-brand"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="user$ | async as user; else login">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active" *ngIf="user$">
+          <a class="nav-link" routerLink="/home">
+            <app-button [src]="'../../../assets/images/home.svg'" [height]="25" [width]="25"></app-button>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a class="nav-link" routerLink="/login" (click)="logout()">
+            <app-button [src]="'../../../assets/images/logout.svg'" [height]="25" [width]="25"></app-button>
+          </a>
+        </li>
+        <div class="d-flex align-items-end mx-5">
+          <app-title size="small" [text]="'User: '.concat(user?.email)"></app-title>
+        </div>
+      </ul>
+      <div class="col-xs-12 col-sm-12 col-md-2" *ngIf="user">
+        <app-form-search></app-form-search>
+      </div>
+    </div>
+    <ng-template #login>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">
+            <app-button [src]="'../../../assets/images/login.svg'" [height]="25" [width]="25"></app-button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">
+            <app-button [src]="'../../../assets/images/register.svg'" [height]="25" [width]="25"></app-button>
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+  </nav>
+</header>

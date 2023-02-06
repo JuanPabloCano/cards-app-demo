@@ -4,12 +4,27 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@environment/*": ["src/environments/*"],
-      "@characters/*": ["src/app/components/pages/characters/*"],
-      "@pages/*": ["src/app/components/pages/*"],
-
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@environment/*": [
+        "src/environments/*"
+      ],
+      "@characters/*": [
+        "src/app/components/pages/characters/*"
+      ],
+      "@atoms/*": [
+        "src/app/components/atoms/*"
+      ],
+      "@molecules/*": [
+        "src/app/components/molecules/*"
+      ],
+      "@organisms/*": [
+        "src/app/components/organisms/*"
+      ],
+      "@templates/*": [
+        "src/app/templates/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

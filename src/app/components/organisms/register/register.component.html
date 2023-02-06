@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card">
+      <div class="card-body bg-dark">
+        <app-title size="medium" [text]="'Register'" class="text-center"></app-title>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label"><app-title size="small" [text]="'Email'"></app-title></label>
+            <input type="text" class="form-control" formControlName="email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label"><app-title size="small" [text]="'Password'"></app-title></label>
+            <input type="password" class="form-control" formControlName="password">
+          </div>
+          <app-button [src]="'../../assets/images/register.svg'" [height]="30" [width]="30"></app-button>
+        </form>
+        <div class="form-group mt-3">
+          <p> Already have an account? <a routerLink="/login">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
