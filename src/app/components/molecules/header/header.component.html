@@ -18,9 +18,11 @@
             <app-button [src]="'../../../assets/images/logout.svg'" [height]="25" [width]="25"></app-button>
           </a>
         </li>
-        <div class="d-flex align-items-end mx-5">
-          <app-title size="small" [text]="'User: '.concat(user?.email)"></app-title>
-        </div>
+        <li class="nav-item" *ngIf="user">
+          <a class="nav-link" routerLink="/user">
+            <app-button [src]="'../../../assets/images/user.svg'" [height]="25" [width]="25"></app-button>
+          </a>
+        </li>
       </ul>
       <div class="col-xs-12 col-sm-12 col-md-2" *ngIf="user">
         <app-form-search></app-form-search>

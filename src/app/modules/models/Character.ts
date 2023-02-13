@@ -6,6 +6,5 @@ export interface Character {
   gender: string;
   created: string;
   status: string;
-  total: number;
 }
 

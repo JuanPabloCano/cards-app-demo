@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule,
     AtomModule,
     OrganismModule,
-    MoleculeModule
+    MoleculeModule,
   ],
   providers: [],
   exports: [],

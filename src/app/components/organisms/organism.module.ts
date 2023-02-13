@@ -7,6 +7,7 @@ import { MoleculeModule } from '@molecules/molecule.module';
 import { CharacterDetailsComponent } from '@organisms/character-details/character-details.component';
 import { LoginComponent } from '@organisms/login/login.component';
 import { RegisterComponent } from '@organisms/register/register.component';
+import { UserComponent } from '@organisms/user/user.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 
 
@@ -15,7 +16,8 @@ import { CharacterListComponent } from './character-list/character-list.componen
     CharacterListComponent,
     CharacterDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent
   ],
   exports: [
     CharacterListComponent

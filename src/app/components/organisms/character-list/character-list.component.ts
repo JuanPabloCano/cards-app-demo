@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '@app/modules/services/character.service';
-import { Character } from '@app/modules/models/Character';
-import { filter, take } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Character } from '@app/modules/models/Character';
+import { CharacterService } from '@app/modules/services/character.service';
+import { filter, take } from 'rxjs';
 
 @Component({
   selector: 'app-character-list',
@@ -14,7 +14,6 @@ export class CharacterListComponent implements OnInit {
   public characters: Character[] = [];
   private pageNum: number = 1;
   private query!: string;
-  private total: number = 10;
 
   constructor(private readonly characterService: CharacterService, private readonly route: ActivatedRoute, private readonly router: Router) {
     this.onUrlChange();
@@ -33,11 +32,7 @@ export class CharacterListComponent implements OnInit {
         this.characters = [];
       }
       const { _, results } = res;
-      const mappedResults = results.map((item: any) => ({
-        ...item,
-        total: this.total
-      }));
-      this.characters = [ ...this.characters, ...mappedResults ];
+      this.characters = results;
     });
   }
 

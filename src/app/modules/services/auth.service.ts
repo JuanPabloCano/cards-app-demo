@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
-import { first } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
@@ -45,7 +44,12 @@ export class AuthService {
 
   public async getCurrentUser() {
     try {
-      return this.auth.authState.pipe(first());
+      return this.auth.onAuthStateChanged(user => {
+        if (user) {
+          return user.uid;
+        }
+        return this.auth.currentUser
+      });
     } catch ( err ) {
       return err;
     }

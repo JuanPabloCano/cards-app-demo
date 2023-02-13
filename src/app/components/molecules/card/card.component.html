@@ -9,9 +9,10 @@
       </a>
       <h4 class="text-muted">{{character.gender}}</h4>
       <h4 class="text-warning">{{character.species}}</h4>
-      <h5 class="text-muted">Total: {{character.total}}</h5>
+      <h5 class="text-muted">Total: {{character.id}}</h5>
       <small class="text-muted">{{character.created | date}}</small>
     </div>
-    <app-button [src]="'../../../assets/images/shop.svg'" [height]="30" [width]="30"></app-button>
+    <app-button [src]="'../../../assets/images/shop.svg'" [height]="30" [width]="30"
+                (click)="buyCharacter(character)"></app-button>
   </div>
 </div>
